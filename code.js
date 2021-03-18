@@ -55,23 +55,6 @@ var cy = cytoscape({
     }]
 });
 
-// $.get("simple_text_file.txt", function (data){
-//   document.write(data);
-// }); // cannot use with file:///
-
-let popper1 = cy.nodes()[0].popper({
-  content: () => {
-    let div = document.createElement('div');
-
-    div.innerHTML = 'Popper content';
-
-    document.body.appendChild(div);
-
-    return div;
-  },
-  popper: {} // my popper options here
-});
-
 cy.on('tap', 'node',function(event){
   // target holds a reference to the originator
   // of the event (core or element)
