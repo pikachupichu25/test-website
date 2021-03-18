@@ -1,3 +1,4 @@
+document.write('write in code.js file')
 var cy = cytoscape({
   container: document.getElementById('cy'),
   elements: [
