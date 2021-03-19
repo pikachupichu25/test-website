@@ -1,0 +1,69 @@
+<!DOCTYPE>
+
+<html>
+
+<head>
+	<title>Side pane</title>
+	<script src="https://unpkg.com/cytoscape/dist/cytoscape.min.js"></script>
+	<script src="https://unpkg.com/@popperjs/core@2"></script>
+	<script src="js/cytoscape-popper.js"></script>
+	<script src="https://unpkg.com/tippy.js@6"></script>
+
+	<style>
+		<style>
+		body {
+			font-family: helvetica neue, helvetica, liberation sans, arial, sans-serif;
+			font-size: 14px
+		}
+
+		#cy {
+			position: absolute;
+			left: 20%;
+			top: 0;
+			bottom: 0;
+			right: 0;
+			z-index: 1;
+		}
+
+		h1 {
+			color: blue;
+			font-size: 1em;
+			font-weight: bold;
+		}
+
+		h2 {
+			color: red;
+			font-size: 1em;
+			font-weight: bold;
+		}
+
+		/* makes sticky faster; disable if you want animated tippies */
+		.tippy-popper {
+			transition: none !important;
+		}
+
+		#leftPane {
+			width: 20%;
+			margin: 0;
+			background-color: lightgrey;
+			height: 100%;
+		}
+	</style>
+	
+	</style>
+</head>
+
+<body>
+	<div id="leftPane">
+		<a href="index.html">HOME</a>
+		<h1>Summary Box</h1>
+		Try clicking on each node
+		<br>
+		*I am still learning how to customize a box and other things.
+		<div id="summary"></div>
+	</div>
+	<div id="cy"></div>
+	<script src='side-pane.js'></script>
+
+
+</body>

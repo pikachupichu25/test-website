@@ -1,0 +1,27 @@
+{
+	"nodes": [
+		{ "data": { 
+			"id": "a",
+			"title": "2019 Amazon's Letter to Shareholders",
+			"summary": "<p>Our Whole Foods Market stores have remained open, providing fresh food and other vital goods for customers.  We have temporarily closed Amazon Books, Amazon 4-star, and Amazon Pop Up stores because they don’t sell essential products, and we offered associates from those closed stores the opportunity to continue working in other parts of Amazon.  Crucially, while providing these essential services, we are focused on the safety of our employees and contractors around the world—we are deeply grateful for their heroic work and are committed to their health and well-being.</p> <p>We also established the Amazon Relief Fund—with an initial $25 million in funding—to support our independent delivery service partners and their drivers, Amazon Flex participants, and temporary employees under financial distress.</p> <p>Amazon Web Services is also playing an important role in this crisis.</p><p>We also launched the AWS Diagnostic Development Initiative, a program to support customers working to bring more accurate diagnostic solutions to market for COVID-19.</p> <p>And we believe if Amazon can get to net zero carbon ten years early, any company can—and we want to work together with all companies to make it a reality.</p> <p>We are making these significant investments to drive our carbon footprint to zero despite the fact that shopping online is already inherently more carbon efficient than going to the store.  AWS is also inherently more efficient than the traditional in-house data center.</p> <p>To ensure that future generations have the skills they need to thrive in a technology-driven economy, we started a program last year called Amazon Future Engineer, which is designed to educate and train low-income and disadvantaged young people to pursue careers in computer science.</p>  ",
+			"full_text": "This is a long text. This is a long text. This is a long text. This is a long text. This is a long text."
+			}
+		},
+		{ "data": { 
+			"id": "b", 
+			"title": "Online shopping booms in the pandemic",
+			"summary": "This is Node B summary.",
+			"full_text": "This is a long text. This is a long text. This is a long text. This is a long text. This is a long text."
+			} 
+		}
+	],
+	"edges": [
+		{ "data": { 
+			"id": "ab", 
+			"source": "a", 
+			"target": "b",
+			"title": "E-commerce"
+			} 
+		}
+	]
+}
