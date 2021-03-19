@@ -1,0 +1,62 @@
+[
+    {
+        "data": {
+            "id": "a",
+            "summary": "This is Node A summary.",
+            "full_text": "This is a long text. This is a long text. This is a long text. This is a long text. This is a long text."
+        },
+        "group": "nodes",
+        "removed": false,
+        "selected": false,
+        "selectable": true,
+        "locked": false,
+        "grabbable": true,
+        "pannable": false,
+        "classes": ""
+    },
+    {
+        "data": {
+            "id": "b",
+            "summary": "This is Node B summary.",
+            "full_text": "This is a long text. This is a long text. This is a long text. This is a long text. This is a long text."
+        },
+        "group": "nodes",
+        "removed": false,
+        "selected": true,
+        "selectable": true,
+        "locked": false,
+        "grabbable": true,
+        "pannable": false,
+        "classes": ""
+    },
+    {
+        "data": {
+            "id": "c",
+            "summary": "This is Node C summary.",
+            "full_text": "This is a long text. This is a long text. This is a long text. This is a long text. This is a long text."
+        },
+        "group": "nodes",
+        "removed": false,
+        "selected": true,
+        "selectable": true,
+        "locked": false,
+        "grabbable": true,
+        "pannable": false,
+        "classes": ""
+    },
+    {
+        "data": {
+            "id": "ab",
+            "source": "a",
+            "target": "b"
+        },
+        "group": "edges",
+        "removed": false,
+        "selected": false,
+        "selectable": true,
+        "locked": false,
+        "grabbable": true,
+        "pannable": true,
+        "classes": ""
+    }
+]
