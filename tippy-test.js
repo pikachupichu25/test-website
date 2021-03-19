@@ -1,5 +1,5 @@
-var toJson = function(obj){ return obj.json(); };
-var elems = fetch("./simple_graph.json").then(toJson);
+// var toJson = function(obj){ return obj.json(); };
+// var elems = fetch("./simple_graph.json").then(toJson);
 
 var cy = window.cy = cytoscape({
 	container: document.getElementById('cy'),
@@ -21,7 +21,24 @@ var cy = window.cy = cytoscape({
 		}
 	],
 
-	elements: elems,
+	elements: //elems,
+	{
+		nodes: [
+			{ data: { 
+				id: 'a', 
+				summary: 'This is Node A summary.',
+				full_text: 'This is a long text. This is a long text. This is a long text. This is a long text. This is a long text.'
+			} },
+			{ data: { 
+				id: 'b', 
+				summary: 'This is Node B summary.',
+				full_text: 'This is a long text. This is a long text. This is a long text. This is a long text. This is a long text.'
+			} }
+		],
+		edges: [
+			{ data: { id: 'ab', source: 'a', target: 'b' } }
+		]
+	},
 
 	layout: {
 		name: 'grid'
