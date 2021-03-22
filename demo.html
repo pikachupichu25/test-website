@@ -53,8 +53,9 @@
 		}
 
 		.header {
-			padding: 10px 20px;
+			padding: 10px;
 			background-color : #acb3b9;
+			min-height: 15%;
 		}
 		.header h1 {
 			color: green;
@@ -64,22 +65,23 @@
 
 		.main_section, .rightpanel {
 			float: left;
-			padding: 20px;
-			min-height: 170px;
-			box-sizing: border-box;
+			padding: 10px;
+			min-height: 85%;
+			/*box-sizing: border-box;*/
 		}
 
 		.main_section {
-			width: 80%;
+			width: 100%;
 			position: fixed;
+			float: left;
 			
 		}
 		.rightpanel {
 			width: 20%;
 			background-color: lightgrey;
 			float: right;
-		}
 
+		}
 		ul {
 			list-style: none;
 			padding: 0;
@@ -97,6 +99,7 @@
 
 		<div class="wrapper clearfix">
 			<div class="main_section">
+				<div id="cy"></div>
 			</div>
 			<div class="rightpanel">
 				
@@ -117,7 +120,7 @@
 				
 			</div>
 		</div>
-		<div id="cy"></div>
+		
 		<script src='side-pane.js'></script>
 
 	</div>
