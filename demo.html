@@ -1,0 +1,125 @@
+<!DOCTYPE>
+
+<html>
+
+<head>
+	<title>Demo</title>
+	<script src="https://unpkg.com/cytoscape/dist/cytoscape.min.js"></script>
+	<script src="https://unpkg.com/@popperjs/core@2"></script>
+	<script src="js/cytoscape-popper.js"></script>
+	<script src="https://unpkg.com/tippy.js@6"></script>
+
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/css/bootstrap-theme.min.css">
+	<link rel="stylesheet" href="js/bootstrap-tagsinput.css">
+	<script type="text/javascript" src="js/jquery-3.6.0.min.js"></script>
+	<script type="text/javascript" src="js/bootstrap-5.0.0-beta2-dist/js/bootstrap.js"></script>
+	<script type="text/javascript" src="js/bootstrap-tagsinput.js"></script>
+
+	<style>
+		
+		body {
+			font-family: helvetica neue, helvetica, liberation sans, arial, sans-serif;
+			font-size: 14px
+		}
+
+		#cy {
+			position: absolute;
+			left: 0;
+			top: 0;
+			bottom: 0;
+			right: 20%;
+			z-index: 1;
+		}
+
+		h1 {
+			color: blue;
+			font-size: 1em;
+			font-weight: bold;
+		}
+
+		h2 {
+			color: red;
+			font-size: 1em;
+			font-weight: bold;
+		}
+
+		/* makes sticky faster; disable if you want animated tippies */
+		.tippy-popper {
+			transition: none !important;
+		}
+		.container {
+			width: 100%;
+		}
+
+		.header {
+			padding: 10px 20px;
+			background-color : #acb3b9;
+		}
+		.header h1 {
+			color: green;
+			font-size: 2em;
+			font-weight: bold;
+		}
+
+		.main_section, .rightpanel {
+			float: left;
+			padding: 20px;
+			min-height: 170px;
+			box-sizing: border-box;
+		}
+
+		.main_section {
+			width: 80%;
+			position: fixed;
+			
+		}
+		.rightpanel {
+			width: 20%;
+			background-color: lightgrey;
+			float: right;
+		}
+
+		ul {
+			list-style: none;
+			padding: 0;
+			margin: 0;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="container">
+		<div class="header">
+			<h1>Header</h1>
+			<a href="index.html">HOME</a>
+		</div>
+
+		<div class="wrapper clearfix">
+			<div class="main_section">
+			</div>
+			<div class="rightpanel">
+				
+				<h1>Summary Box</h1>
+				Try clicking on each node
+				<form action="/my-handling-form-page" method="post">
+					<ul>
+						<li>
+							<label for="keywords">Keywords: (not implement yet)</label>
+							<input type="text" class="form-control" id="keywords" value="Amazon, AWS" data-role="tagsinput" placeholder="type something and put comma between">
+						</li>
+						<li class="button">
+							<button type="submit">Submit</button>
+						</li>
+					</ul>
+				</form>
+				<div id="summary"></div>
+				
+			</div>
+		</div>
+		<div id="cy"></div>
+		<script src='side-pane.js'></script>
+
+	</div>
+</body>
+</html>
