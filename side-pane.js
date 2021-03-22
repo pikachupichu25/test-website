@@ -28,7 +28,7 @@ function initCy(then){
 		{
 			selector: 'node',
 			style: {
-				'content': 'data(id)'
+				'content': 'data(title)'
 			}
 		},
 
