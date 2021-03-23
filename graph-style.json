@@ -1,0 +1,18 @@
+[
+    {
+        "selector": "node",
+        "style": {
+            "label": "data(title)",
+            "text-wrap": "wrap",
+            "text-max-width": "200px"
+        }
+    },
+    {
+        "selector": "edge",
+        "style": {
+            "curve-style": "bezier",
+            "target-arrow-shape": "triangle",
+            "label": "data(title)"
+        }
+    }
+]

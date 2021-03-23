@@ -20,32 +20,14 @@
 
 var toJson = function(obj){ return obj.json(); };
 var graphP = fetch('tippy-test-graph.json').then(toJson);
-Promise.all([graphP]).then(initCy);
+var styleP = fetch('graph-style.json').then(toJson)
+Promise.all([graphP, styleP]).then(initCy);
 
 function initCy(then){
 	var elems = then[0]
 	var cy = window.cy = cytoscape({
 	container: document.getElementById('cy'),
-	style: [
-		{
-			selector: 'node',
-			style: {
-				'content': 'data(title)',
-				"text-wrap": "wrap",
-      			"text-max-width": 200
-			}
-		},
-
-		{
-			selector: 'edge',
-			style: {
-				'curve-style': 'bezier',
-				'target-arrow-shape': 'triangle',
-				'content': 'data(title)'
-			}
-		}
-	],
-
+	style: then[1],
 	elements: elems,
 	layout: {
 		name: 'grid'
