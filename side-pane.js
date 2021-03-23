@@ -16,6 +16,8 @@
 // 		]
 // 	}
 
+// graph with summary side pane
+
 var toJson = function(obj){ return obj.json(); };
 var graphP = fetch('tippy-test-graph.json').then(toJson);
 Promise.all([graphP]).then(initCy);
@@ -28,7 +30,9 @@ function initCy(then){
 		{
 			selector: 'node',
 			style: {
-				'content': 'data(title)'
+				'content': 'data(title)',
+				"text-wrap": "wrap",
+      			"text-max-width": 200
 			}
 		},
 
