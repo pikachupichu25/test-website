@@ -23,9 +23,9 @@
 	<script type="text/javascript" src="js/cytoscape-cola.js"></script>
 
 	<!-- fcose layout-->
-	<!-- <script src="https://unpkg.com/layout-base/layout-base.js"></script>
+	<script src="https://unpkg.com/layout-base/layout-base.js"></script>
 	<script src="https://unpkg.com/cose-base/cose-base.js"></script>
-	<script src="js/cytoscape-fcose.js"></script> -->
+	<script src="js/cytoscape-fcose.js"></script>
 	<style>
 		
 		body {
@@ -139,6 +139,15 @@
 						<li>Click on an add button: generate new node and show input box</li>					
 						<li>Double click on node: generate more dummy node</li>
 					</ul>
+
+					layout type
+					<select id="layout-type">
+						<option value="grid">grid</option>
+						<option value="fcose">fcose</option>
+						<option value="cola">cola</option>
+					</select>
+					<button id="layoutButton">GO</button>
+
 					<form action="/my-handling-form-page" method="post">
 						<ul>
 							<li>
