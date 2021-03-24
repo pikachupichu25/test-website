@@ -13,6 +13,30 @@
 			"summary": "This is Node B summary.",
 			"full_text": "This is a long text. This is a long text. This is a long text. This is a long text. This is a long text."
 			} 
+		},
+		{ "data": { 
+			"id": "c", 
+			"title": "The return of one-to-one commerce",
+			"summary": "This is Node C summary."
+			} 
+		},
+		{ "data": { 
+			"id": "d", 
+			"title": "E-commerce profits may become harder to make",
+			"summary": "This is Node D summary."
+			} 
+		},
+		{ "data": { 
+			"id": "e", 
+			"title": "Independent retailers may choose multiple sales channels",
+			"summary": "This is Node E summary."
+			} 
+		},
+		{ "data": { 
+			"id": "f", 
+			"title": "The importance of \"omnichannel\" strategies",
+			"summary": "This is Node F summary."
+			} 
 		}
 	],
 	"edges": [
@@ -21,6 +45,34 @@
 			"source": "a", 
 			"target": "b",
 			"title": "E-commerce"
+			} 
+		},
+		{ "data": { 
+			"id": "ac", 
+			"source": "a", 
+			"target": "c",
+			"title": "direct-to-consumer"
+			} 
+		},
+		{ "data": { 
+			"id": "ad", 
+			"source": "a", 
+			"target": "d",
+			"title": "E-commerce"
+			} 
+		},
+		{ "data": { 
+			"id": "ae", 
+			"source": "a", 
+			"target": "e",
+			"title": "E-commerce"
+			} 
+		},
+		{ "data": { 
+			"id": "af", 
+			"source": "a", 
+			"target": "f",
+			"title": "shopping"
 			} 
 		}
 	]

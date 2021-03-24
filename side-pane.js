@@ -30,7 +30,7 @@ function initCy(then){
 	style: then[1],
 	elements: elems,
 	layout: {
-		name: 'grid'
+		name: 'grid', //check https://blog.js.cytoscape.org/2020/05/11/layouts/
 	}
 	});
 
