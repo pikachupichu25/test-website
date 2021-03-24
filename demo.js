@@ -2,7 +2,7 @@ var tippy_obj=[];
 var shortText;
 var shownTippy;
 var addButton;
-var layout_config;
+var layout_config = {name: 'grid', animate: true};
 
 // hyperscript-like function
 var h = function(tag, attrs, children){
