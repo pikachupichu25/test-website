@@ -14,5 +14,11 @@
             "target-arrow-shape": "triangle",
             "label": "data(title)"
         }
+    },
+    {
+        "selector": ".eh-handle",
+        "style": {
+            "background-color": "red"
+        }
     }
 ]

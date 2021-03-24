@@ -1,0 +1,151 @@
+var tippy_obj=[];
+var shortText;
+var shownTippy;
+var addButton;
+
+// hyperscript-like function
+var h = function(tag, attrs, children){
+	var el = document.createElement(tag);
+
+	if(attrs != null && typeof attrs === typeof {}){
+	  Object.keys(attrs).forEach(function(key){
+	    var val = attrs[key];
+
+	    el.setAttribute(key, val);
+	  });
+	} else if(typeof attrs === typeof []){
+	  children = attrs;
+	}
+
+	if(children != null && typeof children === typeof []){
+	  children.forEach(function(child){
+	    el.appendChild(child);
+	  });
+	} else if(children != null && typeof children === typeof ''){
+	  el.appendChild(document.createTextNode(children));
+	}
+
+	return el;
+	};
+
+function removeTippy(){
+	if(shownTippy){
+		shownTippy.hide();
+		}
+	}
+
+var makeTippy = function(ele, html){
+	removeTippy();
+	var ref = ele.popperRef();
+
+	// Since tippy constructor requires DOM element/elements, create a placeholder
+	var dummyDomEle = document.createElement('div');
+
+	shownTippy = tippy( dummyDomEle, {
+		getReferenceClientRect: ref.getBoundingClientRect,
+		content: html,
+		allowHTML: true,
+		trigger: 'manual', // mandatory
+		// your own preferences:
+		arrow: true,
+		placement: 'bottom',
+		hideOnClick: false,
+		sticky: "reference",
+
+		// if interactive:
+		interactive: true,
+		appendTo: document.body // or append dummyDomEle to document.body
+	} );
+	shownTippy.show();
+	return shownTippy;
+};
+
+// add a new node connected to a given node
+var addNode = function(cy, node, title, summary){
+	var branch_size = node.connectedEdges().size();
+	var new_node_id = node.id() + String(branch_size);
+	var new_edge_id = node.id() + '-' + new_node_id;
+	var x_pos = node.position('x');
+	var y_pos = node.position('y');
+	cy.add([
+		{group: 'nodes', data: {id: new_node_id, title: title, summary: summary}, position: {x:x_pos, y:y_pos}},
+		// need a better control of a position of a new node
+		// by default {x: 0, y: 0}
+		{group: 'edges', data: {id: new_edge_id, source: node.id(), target: new_node_id}}
+	]);
+	var layout = cy.layout(layout_config)
+	layout.run()
+	return cy.nodes().getElementById(new_node_id);
+}
+
+// graph with summary side pane
+
+var toJson = function(obj){ return obj.json(); };
+var graphP = fetch('tippy-test-graph.json').then(toJson);
+var styleP = fetch('graph-style.json').then(toJson)
+Promise.all([graphP, styleP]).then(initCy);
+
+var layout_config = {
+			name: 'cola', //check https://blog.js.cytoscape.org/2020/05/11/layouts/ cola, fcose
+			animate: true,
+			padding: 50,
+			nodeSpacing: function( node ){ return 90; }
+		}
+function initCy(then){
+	var elems = then[0]
+	var cy = window.cy = cytoscape({
+	container: document.getElementById('cy'),
+		style: then[1],
+		elements: elems,
+		layout: layout_config
+	});
+
+
+	cy.on('mouseover', 'node', function(evt){
+		var node = this;
+		
+		var addButton = h('button', { id: 'add', }, '+');
+
+		addButton.addEventListener('click', function(){
+			// add event
+			var summary = document.getElementById("summary");
+			summary.innerHTML = '<input placeholder="dummy input box">'
+			removeTippy();
+			var new_node = addNode(cy, node, 'untitled', ''); // new node pending to change the data
+			node.deselect();
+			new_node.select();
+		});
+		var html = h('div', { className: 'select-buttons' }, [addButton]);
+		makeTippy(node, html);
+	});
+
+	cy.on('tap', 'node', function(evt){
+		var node = this;
+		var output_text = "<h2>"+node.data("title")+"</h2>"+ node.data("summary")
+		document.getElementById("summary").innerHTML = output_text;
+		
+		// add condition: center if the node is at the margin
+		// cy.center(node)
+	});
+
+	// psuedo-doubletap 
+	// https://stackoverflow.com/questions/18610621/cytoscape-js-check-for-double-click-on-nodes
+	var doubleClickDelayMs = 350;
+	var previousTapStamp;
+	cy.on('tap', function(evt){
+		var currentTapStamp = evt.timeStamp;
+		var msFromLastTap = currentTapStamp - previousTapStamp;
+		if (msFromLastTap < doubleClickDelayMs) {
+       		evt.target.trigger('doubleTap', evt);
+    	}
+    	previousTapStamp = currentTapStamp;
+	});
+
+	cy.on('doubleTap', 'node', function(evt){
+		// generate nodes up to 
+		console.log('doubletap on node')
+		var node = this;
+		addNode(cy, node, 'dummy', 'dummy summary');
+
+	});
+};

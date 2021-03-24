@@ -12,10 +12,20 @@
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/css/bootstrap.min.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/css/bootstrap-theme.min.css">
 	<link rel="stylesheet" href="js/bootstrap-tagsinput.css">
+
+	<!-- for tokenfield input -->
 	<script type="text/javascript" src="js/jquery-3.6.0.min.js"></script>
 	<script type="text/javascript" src="js/bootstrap-5.0.0-beta2-dist/js/bootstrap.js"></script>
 	<script type="text/javascript" src="js/bootstrap-tagsinput.js"></script>
 
+	<!-- cola layout-->
+	<script src="https://unpkg.com/webcola/WebCola/cola.min.js"></script>
+	<script type="text/javascript" src="js/cytoscape-cola.js"></script>
+
+	<!-- fcose layout-->
+	<!-- <script src="https://unpkg.com/layout-base/layout-base.js"></script>
+	<script src="https://unpkg.com/cose-base/cose-base.js"></script>
+	<script src="js/cytoscape-fcose.js"></script> -->
 	<style>
 		
 		body {
@@ -24,9 +34,9 @@
 		}
 
 		#cy {
-			position: absolute;
+			position: fixed;
 			left: 0;
-			top: 0;
+			top: 100px;
 			bottom: 0;
 			right: 20%;
 			z-index: 1;
@@ -52,76 +62,101 @@
 			width: 100%;
 		}
 
-		.header {
+		header {
 			padding: 10px;
-			background-color : #acb3b9;
-			min-height: 15%;
+			background-color : #cccccc;
+			height: 100px;
+			width: 100%;
+			position:fixed;
+			z-index: 2;
 		}
-		.header h1 {
+
+		header h1 {
 			color: green;
 			font-size: 2em;
 			font-weight: bold;
 		}
 
-		.main_section, .rightpanel {
-			float: left;
-			padding: 10px;
-			min-height: 85%;
-			/*box-sizing: border-box;*/
+		.wrapper {
+			margin-top: 100px;
 		}
 
-		.main_section {
-			width: 100%;
-			position: fixed;
+		/*.main_section .rightpanel {
 			float: left;
-			
+			padding: 10px;
+			/*box-sizing: border-box;*/
+		}*/
+
+		.main_section {
+			width: 80%;
+			position: fixed;
 		}
 		.rightpanel {
 			width: 20%;
-			background-color: lightgrey;
+			background-color: #f2f2f2;
 			float: right;
-
+		}
+		.rightpanel-head{
+			position: fixed;
+			
 		}
 		ul {
 			list-style: none;
 			padding: 0;
 			margin: 0;
 		}
+
+		.summary {
+			overflow: scroll;
+		}
+
+		button#add {
+			color: white;
+			background-color: green;
+		}
+
 	</style>
 </head>
 
 <body>
 	<div class="container">
-		<div class="header">
+		<header>
 			<h1>Header</h1>
 			<a href="index.html">HOME</a>
-		</div>
+			| adding node is not optimal yet | not implement input box yet
+		</header>
 
 		<div class="wrapper clearfix">
 			<div class="main_section">
 				<div id="cy"></div>
 			</div>
 			<div class="rightpanel">
-				
-				<h1>Summary Box</h1>
-				Try clicking on each node
-				<form action="/my-handling-form-page" method="post">
+				<div class="righpanel-head">
+					<h1>Summary Box</h1>
 					<ul>
-						<li>
-							<label for="keywords">Keywords: (not implement yet)</label>
-							<input type="text" class="form-control" id="keywords" value="Amazon, AWS" data-role="tagsinput" placeholder="type something and put comma between">
-						</li>
-						<li class="button">
-							<button type="submit">Submit</button>
-						</li>
+						<li>Click on node: show summary on the summary box</li>
+						<li>Mouseover: tippy with an add button</li>
+						<li>Click on an add button: generate new node and show input box</li>					
+						<li>Double click on node: generate more dummy node</li>
 					</ul>
-				</form>
+					<form action="/my-handling-form-page" method="post">
+						<ul>
+							<li>
+								<label for="keywords">Keywords: (not implement yet)</label>
+								<input type="text" class="form-control" id="keywords" value="Amazon, AWS" data-role="tagsinput" placeholder="type something and put comma between">
+							</li>
+							<li class="button">
+								<button type="submit">Submit</button>
+							</li>
+						</ul>
+					</form>
+				</div>
 				<div id="summary"></div>
 				
 			</div>
 		</div>
 		
-		<script src='side-pane.js'></script>
+		<script src='demo.js'></script>
 
 	</div>
 </body>
