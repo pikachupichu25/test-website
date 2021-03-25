@@ -26,6 +26,9 @@
 	<script src="https://unpkg.com/layout-base/layout-base.js"></script>
 	<script src="https://unpkg.com/cose-base/cose-base.js"></script>
 	<script src="js/cytoscape-fcose.js"></script>
+
+	
+
 	<style>
 		
 		body {
@@ -89,6 +92,7 @@
 
 		.main_section {
 			width: 80%;
+			height: 100%;
 			position: fixed;
 		}
 		.rightpanel {
@@ -127,7 +131,7 @@
 		</header>
 
 		<div class="wrapper clearfix">
-			<div class="main_section">
+			<div class="main_section" id="main_section">
 				<div id="cy"></div>
 			</div>
 			<div class="rightpanel">
@@ -142,9 +146,10 @@
 
 					layout type
 					<select id="layout-type">
+						<option value="cola">cola</option>
 						<option value="grid">grid</option>
 						<option value="fcose">fcose</option>
-						<option value="cola">cola</option>
+						<option value="concentric">concentric</option>
 					</select>
 					<button id="layoutButton">GO</button>
 
@@ -164,7 +169,7 @@
 				
 			</div>
 		</div>
-		
+		<script src="add-node-util.js"></script>
 		<script src='demo.js'></script>
 
 	</div>

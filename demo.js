@@ -2,7 +2,8 @@ var tippy_obj=[];
 var shortText;
 var shownTippy;
 var addButton;
-var layout_config = {name: 'grid', animate: true};
+var layout_config = {name: 'cola', animate: true, nodeSpacing: function( node ){ return 90; }};
+var local_layout_config = {name: 'cola'};
 
 // hyperscript-like function
 var h = function(tag, attrs, children){
@@ -68,15 +69,28 @@ var addNode = function(cy, node, title, summary){
 	var new_edge_id = node.id() + '-' + new_node_id;
 	var x_pos = node.position('x');
 	var y_pos = node.position('y');
+
+	var new_xy_pos = findEmptyPostion(node, 200);
 	cy.add([
-		{group: 'nodes', data: {id: new_node_id, title: title, summary: summary}, position: {x:x_pos, y:y_pos}},
+		{group: 'nodes', data: {id: new_node_id, title: title, summary: summary}, position: {x:new_xy_pos[0], y:new_xy_pos[1]}},
 		// need a better control of a position of a new node
 		// by default {x: 0, y: 0}
 		{group: 'edges', data: {id: new_edge_id, source: node.id(), target: new_node_id}}
 	]);
-	var layout = cy.layout(layout_config)
-	layout.run()
+
+	// var nodes = cy.$('#'+node.id()).union('#'+new_node_id)
+	// do something with local node first
+	// var local_nodes = node.connectedEdges().connectedNodes()
+	// var layout = nodes.layout(local_layout_config)
+	// layout.run();
+
+	
 	return cy.nodes().getElementById(new_node_id);
+}
+
+var layoutRefresh = function(cy) {
+	var layout = cy.layout(layout_config);
+	layout.run();
 }
 
 // graph with summary side pane
@@ -90,14 +104,13 @@ Promise.all([graphP, styleP]).then(initCy);
 //check https://blog.js.cytoscape.org/2020/05/11/layouts/ cola, fcose
 
 
-
-
 function initCy(then){
 	var elems = then[0]
 	var cy = window.cy = cytoscape({
 	container: document.getElementById('cy'),
 		style: then[1],
 		elements: elems,
+		layout: layout_config
 	});
 
 	document.getElementById("layoutButton").addEventListener("click", function(){
@@ -125,6 +138,7 @@ function initCy(then){
 			var new_node = addNode(cy, node, 'untitled', ''); // new node pending to change the data
 			node.deselect();
 			new_node.select();
+			layoutRefresh(cy);
 		});
 		var html = h('div', { className: 'select-buttons' }, [addButton]);
 		makeTippy(node, html);
@@ -166,6 +180,7 @@ function initCy(then){
 		for (i=0; i<new_node_num; i++) {
 			addNode(cy, node, 'dummy', 'dummy summary');
 		}
+		layoutRefresh(cy);
 
 
 	});
