@@ -9,6 +9,22 @@ var graphSize = function(cy){
 	return [x, y];
 };
 
+// check whether given rendered position x, y at the 'margin'
+var isAtMargin = function(cy, x, y, margin_value) {
+	graph_size = graphSize(cy);
+	let not_margin_x = [graph_size[0]*margin_value, graph_size[0]*(1-margin_value)];
+	let not_margin_y = [graph_size[1]*margin_value, graph_size[1]*(1-margin_value)];
+	if (x > not_margin_x[0] && x < not_margin_x[1] && y > not_margin_y[0] && y < not_margin_y[1]){
+		return false;
+	} else {
+		return true;
+	}
+}
+
+var isNodeAtMargin = function(cy, node, margin_value){
+	return isAtMargin(cy, node.renderedPosition('x'), node.renderedPosition('y'), margin_value);	
+}
+
 var vectorLength = function(x, y) {
 	return Math.sqrt( Math.pow(x, 2) + Math.pow(y, 2) )
 };
@@ -58,10 +74,10 @@ var findEmptyPostion = function(node, distance){
 		var angle = findAngle(rel_x_y[0], rel_x_y[1])
 		node_id_angle[node_id] = angle
 	}
-	console.log(node_id_angle)
+	// console.log(node_id_angle)
 	var node_by_pos = Object.keys(node_id_angle);
 	node_by_pos.sort(function(a,b){return node_id_angle[a]-node_id_angle[b]});
-	console.log(node_by_pos)
+	// console.log(node_by_pos)
 	// find max angle
 	var max_angle_node_id;
 	var max_angle = 0;
@@ -77,8 +93,8 @@ var findEmptyPostion = function(node, distance){
 			max_angle_node_id = node_by_pos[i];
 		}
 	}
-	console.log(max_angle_node_id)
+	// console.log(max_angle_node_id)
 	var new_node_angle = node_id_angle[max_angle_node_id] + max_angle/2;
-	console.log(new_node_angle)
+	// console.log(new_node_angle)
 	return getNewPosition(new_node_angle, distance, origin_node);
 };

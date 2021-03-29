@@ -4,6 +4,7 @@ var shownTippy;
 var addButton;
 var layout_config = {name: 'cola', animate: true, nodeSpacing: function( node ){ return 90; }};
 var local_layout_config = {name: 'cola'};
+var updateLayoutAfterAddNode = true;
 
 // hyperscript-like function
 var h = function(tag, attrs, children){
@@ -88,7 +89,7 @@ var addNode = function(cy, node, title, summary){
 	return cy.nodes().getElementById(new_node_id);
 }
 
-var layoutRefresh = function(cy) {
+var layoutRefresh = function(cy, centerNode) {
 	var layout = cy.layout(layout_config);
 	layout.run();
 }
@@ -124,6 +125,18 @@ function initCy(then){
 	layout.run()
 	})
 
+	cy.minZoom(0.8)
+
+	document.getElementById("layoutUpdateButton").addEventListener("click", function(){
+		let layoutUpdate = document.querySelector('input[name="update-layout"]:checked').value
+		console.log(layoutUpdate)
+		if (layoutUpdate === "yes") {
+			updateLayoutAfterAddNode=true
+		} else {
+			updateLayoutAfterAddNode=false
+		}
+	});
+
 
 	cy.on('mouseover', 'node', function(evt){
 		var node = this;
@@ -135,10 +148,23 @@ function initCy(then){
 			var summary = document.getElementById("summary");
 			summary.innerHTML = '<input placeholder="dummy input box">'
 			removeTippy();
-			var new_node = addNode(cy, node, 'untitled', ''); // new node pending to change the data
+			var newNode = addNode(cy, node, 'untitled', ''); // new node pending to change the data
 			node.deselect();
-			new_node.select();
-			layoutRefresh(cy);
+			newNode.select();
+			if (updateLayoutAfterAddNode === true) {
+				layoutRefresh(cy);
+			}
+
+			var recenter
+			if (isNodeAtMargin(cy, newNode, 0)===true){
+				console.log('node at margin', isNodeAtMargin(cy, newNode, 0.05))
+				recenter=true;
+			}
+			if (recenter){
+				cy.center(node);
+			}
+
+			
 		});
 		var html = h('div', { className: 'select-buttons' }, [addButton]);
 		makeTippy(node, html);
@@ -166,6 +192,7 @@ function initCy(then){
     	previousTapStamp = currentTapStamp;
 	});
 
+	// doubleclick = show more node
 	cy.on('doubleTap', 'node', function(evt){
 		// generate nodes up to 
 		var node = this;
@@ -177,11 +204,23 @@ function initCy(then){
 			new_node_num = 2;
 		}
 		var i;
+		var recenter = false
 		for (i=0; i<new_node_num; i++) {
-			addNode(cy, node, 'dummy', 'dummy summary');
-		}
-		layoutRefresh(cy);
+			var newNode = addNode(cy, node, 'dummy', 'dummy summary');
 
+			if (isNodeAtMargin(cy, newNode, 0)===true){
+				console.log('node at margin', isNodeAtMargin(cy, newNode, 0.05))
+				recenter=true
+			}
+		}
+
+		if (updateLayoutAfterAddNode === true) {
+			layoutRefresh(cy);
+		}
+
+		if (recenter) {
+			cy.center(node);
+		}
 
 	});
 };

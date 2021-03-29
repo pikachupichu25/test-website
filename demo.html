@@ -99,6 +99,7 @@
 			width: 20%;
 			background-color: #f2f2f2;
 			float: right;
+			padding: 10px;
 		}
 		.rightpanel-head{
 			position: fixed;
@@ -143,16 +144,25 @@
 						<li>Click on an add button: generate new node and show input box</li>					
 						<li>Double click on node: generate more dummy node</li>
 					</ul>
+					<p>
+						layout type
+						<select id="layout-type">
+							<option value="cola">cola</option>
+							<option value="grid">grid</option>
+							<option value="fcose">fcose</option>
+							<option value="concentric">concentric</option>
+						</select>
+						<button id="layoutButton">GO</button>
+					</p>
 
-					layout type
-					<select id="layout-type">
-						<option value="cola">cola</option>
-						<option value="grid">grid</option>
-						<option value="fcose">fcose</option>
-						<option value="concentric">concentric</option>
-					</select>
-					<button id="layoutButton">GO</button>
-
+					
+					update layout after adding node:
+					<div>
+						<input type="radio" name="update-layout" value="yes"><label for="yes"> yes</label>
+						<input type="radio" name="update-layout" value="no"><label for="no"> no</label>
+						<button type="submit" id="layoutUpdateButton">Submit</button>
+					</div>
+					
 					<form action="/my-handling-form-page" method="post">
 						<ul>
 							<li>
