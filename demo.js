@@ -2,7 +2,7 @@ var tippy_obj=[];
 var shortText;
 var shownTippy;
 var addButton;
-var layout_config = {name: 'cola', animate: true, nodeSpacing: function( node ){ return 90; }};
+var layout_config = {name: 'cola', animate: true, nodeSpacing: function( node ){ return 90; }, fit: false};
 var local_layout_config = {name: 'cola'};
 var updateLayoutAfterAddNode = true;
 
@@ -64,7 +64,7 @@ var makeTippy = function(ele, html){
 };
 
 // add a new node connected to a given node
-var addNode = function(cy, node, title, summary){
+var addNode = function(cy, node, title, summary, link_title){
 	var branch_size = node.connectedEdges().size();
 	var new_node_id = node.id() + String(branch_size);
 	var new_edge_id = node.id() + '-' + new_node_id;
@@ -76,22 +76,17 @@ var addNode = function(cy, node, title, summary){
 		{group: 'nodes', data: {id: new_node_id, title: title, summary: summary}, position: {x:new_xy_pos[0], y:new_xy_pos[1]}},
 		// need a better control of a position of a new node
 		// by default {x: 0, y: 0}
-		{group: 'edges', data: {id: new_edge_id, source: node.id(), target: new_node_id}}
+		{group: 'edges', data: {id: new_edge_id, source: node.id(), target: new_node_id, title: link_title}}
 	]);
 
-	// var nodes = cy.$('#'+node.id()).union('#'+new_node_id)
-	// do something with local node first
-	// var local_nodes = node.connectedEdges().connectedNodes()
-	// var layout = nodes.layout(local_layout_config)
-	// layout.run();
-
-	
 	return cy.nodes().getElementById(new_node_id);
 }
 
-var layoutRefresh = function(cy, centerNode) {
+var layoutRefresh = function(cy) {
 	var layout = cy.layout(layout_config);
 	layout.run();
+	// setTimeout(function(){layout.stop();}, 500);
+	// console.log('stop layout')
 }
 
 // graph with summary side pane
@@ -148,23 +143,23 @@ function initCy(then){
 			var summary = document.getElementById("summary");
 			summary.innerHTML = '<input placeholder="dummy input box">'
 			removeTippy();
-			var newNode = addNode(cy, node, 'untitled', ''); // new node pending to change the data
+			var newNode = addNode(cy, node, 'untitled', '', ''); // new node pending to change the data
 			node.deselect();
 			newNode.select();
+
 			if (updateLayoutAfterAddNode === true) {
 				layoutRefresh(cy);
 			}
 
 			var recenter
 			if (isNodeAtMargin(cy, newNode, 0)===true){
-				console.log('node at margin', isNodeAtMargin(cy, newNode, 0.05))
 				recenter=true;
 			}
 			if (recenter){
 				cy.center(node);
+				console.log('recenter');
 			}
 
-			
 		});
 		var html = h('div', { className: 'select-buttons' }, [addButton]);
 		makeTippy(node, html);
@@ -206,11 +201,9 @@ function initCy(then){
 		var i;
 		var recenter = false
 		for (i=0; i<new_node_num; i++) {
-			var newNode = addNode(cy, node, 'dummy', 'dummy summary');
-
+			var newNode = addNode(cy, node, 'dummy', 'dummy summary', 'link_name');
 			if (isNodeAtMargin(cy, newNode, 0)===true){
-				console.log('node at margin', isNodeAtMargin(cy, newNode, 0.05))
-				recenter=true
+				recenter=true;
 			}
 		}
 
@@ -220,7 +213,11 @@ function initCy(then){
 
 		if (recenter) {
 			cy.center(node);
+			console.log('recenter');
 		}
+
+		
+		
 
 	});
 };

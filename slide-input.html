@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>slide-input</title>
+	<style>
+		.row {
+			display: table;
+		}
+
+		.col {
+			float: left;
+			padding: 30px;
+		}
+
+	</style>
+</head>
+<body>
+	<a href="index.html">HOME</a>
+	<p>Interests</p>
+
+	<form method="POST" action="/somewhere_else">
+		<div class="row">
+			<div class="col">
+				<label for="deep-learning">Deep Learning</label>
+				<br>
+				<input type="range" id="deep-learning" name="deep-learning"
+				min="0" max="1" step="0.01" value="0.0">
+				
+			</div>
+
+			<div class="col">
+				<label for="machine-learning">Machine Learning</label>
+				<br>
+				<input type="range" id="machine-learning" name="machine-learning" 
+				min="0" max="1" step="0.01" value="0.0">
+				
+			</div>
+			<div class="col">
+				<label for="ai">AI</label>
+				<br>
+				<input type="range" id="ai" name="ai" 
+				min="0" max="1" step="0.01" value="0.0">
+				
+			</div>
+
+			<div class="col">
+				<label for="agi">AGI</label>
+				<br>
+				<input type="range" id="agi" name="agi" 
+				min="0" max="1" step="0.01" value="0.0">
+				
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col">
+				<label for="long-term_strategy">Long-term Strategy</label>
+				<br>
+				<input type="range" id="long-term_strategy" name="long-term_strategy"
+				min="0" max="1" step="0.01" value="0.0">
+				
+			</div>
+
+			<div class="col">
+				<label for="quarterly_results">Quarterly Results</label>
+				<br>
+				<input type="range" id="quarterly_results" name="quarterly_results" 
+				min="0" max="1" step="0.01" value="0.0">
+				
+			</div>
+			<div class="col">
+				<label for="asset_allocation">Asset Allocation</label>
+				<br>
+				<input type="range" id="asset_allocation" name="asset_allocation" 
+				min="0" max="1" step="0.01" value="0.0">
+				
+			</div>
+
+			<div class="col">
+				<label for="return_vs_risk">Return vs Risk</label>
+				<br>
+				<input type="range" id="return_vs_risk" name="return_vs_risk" 
+				min="0" max="1" step="0.01" value="0.0">
+				
+			</div>
+		</div>
+
+		<div class="row">
+			<button type="submit">Submit</button>
+		</div>
+
+		<ul>
+			<li><a href="https://www.w3schools.com/howto/howto_css_three_columns.asp">how to - three column layout</a></li>
+			<li><a href="https://developer.mozilla.org/en-US/docs/Learn/Forms/Sending_and_retrieving_form_data">Sending form data</a></li>
+		</ul>
+
+		I think we need to get server to actually retrieve this data from form. I am not sure how to run in in Amazon apify.
+	</form>
+
+</body>
+</html>
+
