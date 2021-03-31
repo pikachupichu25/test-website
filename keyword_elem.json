@@ -1,0 +1,866 @@
+{
+    "nodes": [
+        {
+            "data": {
+                "id": "people",
+                "weight": 0.98
+            }
+        },
+        {
+            "data": {
+                "id": "startup",
+                "weight": 0.902
+            }
+        },
+        {
+            "data": {
+                "id": "idea",
+                "weight": 0.888
+            }
+        },
+        {
+            "data": {
+                "id": "startup idea",
+                "weight": 0.866
+            }
+        },
+        {
+            "data": {
+                "id": "make web site",
+                "weight": 0.846
+            }
+        },
+        {
+            "data": {
+                "id": "start a startup",
+                "weight": 0.802
+            }
+        },
+        {
+            "data": {
+                "id": "make",
+                "weight": 0.727
+            }
+        },
+        {
+            "data": {
+                "id": "work",
+                "weight": 0.702
+            }
+        },
+        {
+            "data": {
+                "id": "Bus ticket theory",
+                "weight": 0.7
+            }
+        },
+        {
+            "data": {
+                "id": "Bus ticket",
+                "weight": 0.674
+            }
+        },
+        {
+            "data": {
+                "id": "theory",
+                "weight": 0.668
+            }
+        },
+        {
+            "data": {
+                "id": "ticket",
+                "weight": 0.666
+            }
+        },
+        {
+            "data": {
+                "id": "ticket theory",
+                "weight": 0.647
+            }
+        },
+        {
+            "data": {
+                "id": "bus ticket collector",
+                "weight": 0.621
+            }
+        },
+        {
+            "data": {
+                "id": "start",
+                "weight": 0.613
+            }
+        },
+        {
+            "data": {
+                "id": "Bus",
+                "weight": 0.595
+            }
+        },
+        {
+            "data": {
+                "id": "great work",
+                "weight": 0.542
+            }
+        },
+        {
+            "data": {
+                "id": "Artix",
+                "weight": 0.542
+            }
+        },
+        {
+            "data": {
+                "id": "thing",
+                "weight": 0.489
+            }
+        },
+        {
+            "data": {
+                "id": "business",
+                "weight": 0.489
+            }
+        },
+        {
+            "data": {
+                "id": "great",
+                "weight": 0.463
+            }
+        },
+        {
+            "data": {
+                "id": "Web",
+                "weight": 0.463
+            }
+        },
+        {
+            "data": {
+                "id": "problem",
+                "weight": 0.461
+            }
+        },
+        {
+            "data": {
+                "id": "good startup idea",
+                "weight": 0.437
+            }
+        },
+        {
+            "data": {
+                "id": "bad idea",
+                "weight": 0.437
+            }
+        },
+        {
+            "data": {
+                "id": "startup founder",
+                "weight": 0.411
+            }
+        },
+        {
+            "data": {
+                "id": "smart people",
+                "weight": 0.411
+            }
+        },
+        {
+            "data": {
+                "id": "interested",
+                "weight": 0.384
+            }
+        },
+        {
+            "data": {
+                "id": "make money",
+                "weight": 0.384
+            }
+        },
+        {
+            "data": {
+                "id": "founder",
+                "weight": 0.358
+            }
+        },
+        {
+            "data": {
+                "id": "genius",
+                "weight": 0.358
+            }
+        },
+        {
+            "data": {
+                "id": "make web",
+                "weight": 0.358
+            }
+        },
+        {
+            "data": {
+                "id": "college",
+                "weight": 0.332
+            }
+        },
+        {
+            "data": {
+                "id": "interest",
+                "weight": 0.332
+            }
+        },
+        {
+            "data": {
+                "id": "money",
+                "weight": 0.332
+            }
+        },
+        {
+            "data": {
+                "id": "lot",
+                "weight": 0.305
+            }
+        },
+        {
+            "data": {
+                "id": "ticket collector",
+                "weight": 0.305
+            }
+        },
+        {
+            "data": {
+                "id": "company",
+                "weight": 0.305
+            }
+        }
+    ],
+    "edges": [
+        {
+            "data": {
+                "id": "startup_startup idea",
+                "source": "startup",
+                "target": "startup idea",
+                "weight": 0.9532474279403687
+            }
+        },
+        {
+            "data": {
+                "id": "startup_start a startup",
+                "source": "startup",
+                "target": "start a startup",
+                "weight": 0.939293622970581
+            }
+        },
+        {
+            "data": {
+                "id": "interest_interested",
+                "source": "interest",
+                "target": "interested",
+                "weight": 0.9336864352226257
+            }
+        },
+        {
+            "data": {
+                "id": "startup_startup founder",
+                "source": "startup",
+                "target": "startup founder",
+                "weight": 0.9128994345664978
+            }
+        },
+        {
+            "data": {
+                "id": "startup idea_start a startup",
+                "source": "startup idea",
+                "target": "start a startup",
+                "weight": 0.9117240905761719
+            }
+        },
+        {
+            "data": {
+                "id": "startup idea_good startup idea",
+                "source": "startup idea",
+                "target": "good startup idea",
+                "weight": 0.8967692852020264
+            }
+        },
+        {
+            "data": {
+                "id": "startup founder_startup idea",
+                "source": "startup founder",
+                "target": "startup idea",
+                "weight": 0.8939326405525208
+            }
+        },
+        {
+            "data": {
+                "id": "start a startup_startup founder",
+                "source": "start a startup",
+                "target": "startup founder",
+                "weight": 0.8599578142166138
+            }
+        },
+        {
+            "data": {
+                "id": "good startup idea_startup",
+                "source": "good startup idea",
+                "target": "startup",
+                "weight": 0.8532392978668213
+            }
+        },
+        {
+            "data": {
+                "id": "Bus ticket_bus ticket collector",
+                "source": "Bus ticket",
+                "target": "bus ticket collector",
+                "weight": 0.842248797416687
+            }
+        },
+        {
+            "data": {
+                "id": "good startup idea_start a startup",
+                "source": "good startup idea",
+                "target": "start a startup",
+                "weight": 0.829370379447937
+            }
+        },
+        {
+            "data": {
+                "id": "Bus ticket_Bus",
+                "source": "Bus ticket",
+                "target": "Bus",
+                "weight": 0.7969579696655273
+            }
+        },
+        {
+            "data": {
+                "id": "Web_make web",
+                "source": "Web",
+                "target": "make web",
+                "weight": 0.7851146459579468
+            }
+        },
+        {
+            "data": {
+                "id": "make web site_make web",
+                "source": "make web site",
+                "target": "make web",
+                "weight": 0.7839829921722412
+            }
+        },
+        {
+            "data": {
+                "id": "great work_great",
+                "source": "great work",
+                "target": "great",
+                "weight": 0.7601432204246521
+            }
+        },
+        {
+            "data": {
+                "id": "ticket_ticket collector",
+                "source": "ticket",
+                "target": "ticket collector",
+                "weight": 0.7468826770782471
+            }
+        },
+        {
+            "data": {
+                "id": "Bus ticket theory_Bus ticket",
+                "source": "Bus ticket theory",
+                "target": "Bus ticket",
+                "weight": 0.7460610866546631
+            }
+        },
+        {
+            "data": {
+                "id": "great work_smart people",
+                "source": "great work",
+                "target": "smart people",
+                "weight": 0.7007489204406738
+            }
+        },
+        {
+            "data": {
+                "id": "bus ticket collector_ticket collector",
+                "source": "bus ticket collector",
+                "target": "ticket collector",
+                "weight": 0.6954312324523926
+            }
+        },
+        {
+            "data": {
+                "id": "make money_money",
+                "source": "make money",
+                "target": "money",
+                "weight": 0.6917058825492859
+            }
+        },
+        {
+            "data": {
+                "id": "business_company",
+                "source": "business",
+                "target": "company",
+                "weight": 0.6865293979644775
+            }
+        },
+        {
+            "data": {
+                "id": "founder_startup founder",
+                "source": "founder",
+                "target": "startup founder",
+                "weight": 0.6745122671127319
+            }
+        },
+        {
+            "data": {
+                "id": "Bus ticket theory_bus ticket collector",
+                "source": "Bus ticket theory",
+                "target": "bus ticket collector",
+                "weight": 0.6739888191223145
+            }
+        },
+        {
+            "data": {
+                "id": "make web site_Web",
+                "source": "make web site",
+                "target": "Web",
+                "weight": 0.6683827638626099
+            }
+        },
+        {
+            "data": {
+                "id": "Bus ticket theory_ticket theory",
+                "source": "Bus ticket theory",
+                "target": "ticket theory",
+                "weight": 0.6681251525878906
+            }
+        },
+        {
+            "data": {
+                "id": "great work_genius",
+                "source": "great work",
+                "target": "genius",
+                "weight": 0.6561290621757507
+            }
+        },
+        {
+            "data": {
+                "id": "great_genius",
+                "source": "great",
+                "target": "genius",
+                "weight": 0.6479009985923767
+            }
+        },
+        {
+            "data": {
+                "id": "great_interested",
+                "source": "great",
+                "target": "interested",
+                "weight": 0.6448919177055359
+            }
+        },
+        {
+            "data": {
+                "id": "ticket_ticket theory",
+                "source": "ticket",
+                "target": "ticket theory",
+                "weight": 0.6342074871063232
+            }
+        },
+        {
+            "data": {
+                "id": "problem_bad idea",
+                "source": "problem",
+                "target": "bad idea",
+                "weight": 0.6302672624588013
+            }
+        },
+        {
+            "data": {
+                "id": "idea_theory",
+                "source": "idea",
+                "target": "theory",
+                "weight": 0.6197811365127563
+            }
+        },
+        {
+            "data": {
+                "id": "ticket_Bus ticket",
+                "source": "ticket",
+                "target": "Bus ticket",
+                "weight": 0.6101177930831909
+            }
+        },
+        {
+            "data": {
+                "id": "Bus_bus ticket collector",
+                "source": "Bus",
+                "target": "bus ticket collector",
+                "weight": 0.6037600636482239
+            }
+        },
+        {
+            "data": {
+                "id": "Bus_Bus ticket theory",
+                "source": "Bus",
+                "target": "Bus ticket theory",
+                "weight": 0.6014080047607422
+            }
+        },
+        {
+            "data": {
+                "id": "interest_great",
+                "source": "interest",
+                "target": "great",
+                "weight": 0.5879589319229126
+            }
+        },
+        {
+            "data": {
+                "id": "founder_startup",
+                "source": "founder",
+                "target": "startup",
+                "weight": 0.5874984860420227
+            }
+        },
+        {
+            "data": {
+                "id": "smart people_great",
+                "source": "smart people",
+                "target": "great",
+                "weight": 0.5784122943878174
+            }
+        },
+        {
+            "data": {
+                "id": "thing_great",
+                "source": "thing",
+                "target": "great",
+                "weight": 0.5771440267562866
+            }
+        },
+        {
+            "data": {
+                "id": "make_start",
+                "source": "make",
+                "target": "start",
+                "weight": 0.5731559991836548
+            }
+        },
+        {
+            "data": {
+                "id": "lot_great",
+                "source": "lot",
+                "target": "great",
+                "weight": 0.5729498863220215
+            }
+        },
+        {
+            "data": {
+                "id": "idea_startup idea",
+                "source": "idea",
+                "target": "startup idea",
+                "weight": 0.57063227891922
+            }
+        },
+        {
+            "data": {
+                "id": "idea_start",
+                "source": "idea",
+                "target": "start",
+                "weight": 0.5680589079856873
+            }
+        },
+        {
+            "data": {
+                "id": "founder_company",
+                "source": "founder",
+                "target": "company",
+                "weight": 0.5612789988517761
+            }
+        },
+        {
+            "data": {
+                "id": "people_thing",
+                "source": "people",
+                "target": "thing",
+                "weight": 0.5550495982170105
+            }
+        },
+        {
+            "data": {
+                "id": "smart people_genius",
+                "source": "smart people",
+                "target": "genius",
+                "weight": 0.5525169372558594
+            }
+        },
+        {
+            "data": {
+                "id": "thing_lot",
+                "source": "thing",
+                "target": "lot",
+                "weight": 0.5446925759315491
+            }
+        },
+        {
+            "data": {
+                "id": "problem_thing",
+                "source": "problem",
+                "target": "thing",
+                "weight": 0.5302475094795227
+            }
+        },
+        {
+            "data": {
+                "id": "start_founder",
+                "source": "start",
+                "target": "founder",
+                "weight": 0.5212680697441101
+            }
+        },
+        {
+            "data": {
+                "id": "interest_people",
+                "source": "interest",
+                "target": "people",
+                "weight": 0.5192742943763733
+            }
+        },
+        {
+            "data": {
+                "id": "make_idea",
+                "source": "make",
+                "target": "idea",
+                "weight": 0.5182501673698425
+            }
+        },
+        {
+            "data": {
+                "id": "make_thing",
+                "source": "make",
+                "target": "thing",
+                "weight": 0.513622522354126
+            }
+        },
+        {
+            "data": {
+                "id": "bad idea_idea",
+                "source": "bad idea",
+                "target": "idea",
+                "weight": 0.5135505199432373
+            }
+        },
+        {
+            "data": {
+                "id": "theory_ticket theory",
+                "source": "theory",
+                "target": "ticket theory",
+                "weight": 0.5115988254547119
+            }
+        },
+        {
+            "data": {
+                "id": "work_great work",
+                "source": "work",
+                "target": "great work",
+                "weight": 0.5092341303825378
+            }
+        },
+        {
+            "data": {
+                "id": "ticket collector_ticket theory",
+                "source": "ticket collector",
+                "target": "ticket theory",
+                "weight": 0.504267156124115
+            }
+        },
+        {
+            "data": {
+                "id": "work_make",
+                "source": "work",
+                "target": "make",
+                "weight": 0.5006210803985596
+            }
+        },
+        {
+            "data": {
+                "id": "company_startup founder",
+                "source": "company",
+                "target": "startup founder",
+                "weight": 0.4974026679992676
+            }
+        },
+        {
+            "data": {
+                "id": "make web site_make",
+                "source": "make web site",
+                "target": "make",
+                "weight": 0.495830237865448
+            }
+        },
+        {
+            "data": {
+                "id": "interested_idea",
+                "source": "interested",
+                "target": "idea",
+                "weight": 0.4951581060886383
+            }
+        },
+        {
+            "data": {
+                "id": "problem_interested",
+                "source": "problem",
+                "target": "interested",
+                "weight": 0.49457302689552307
+            }
+        },
+        {
+            "data": {
+                "id": "make web_startup",
+                "source": "make web",
+                "target": "startup",
+                "weight": 0.49406078457832336
+            }
+        },
+        {
+            "data": {
+                "id": "people_interested",
+                "source": "people",
+                "target": "interested",
+                "weight": 0.4928877651691437
+            }
+        },
+        {
+            "data": {
+                "id": "lot_interested",
+                "source": "lot",
+                "target": "interested",
+                "weight": 0.4853704273700714
+            }
+        },
+        {
+            "data": {
+                "id": "make money_great work",
+                "source": "make money",
+                "target": "great work",
+                "weight": 0.4777871072292328
+            }
+        },
+        {
+            "data": {
+                "id": "make money_great",
+                "source": "make money",
+                "target": "great",
+                "weight": 0.4670279026031494
+            }
+        },
+        {
+            "data": {
+                "id": "Artix_idea",
+                "source": "Artix",
+                "target": "idea",
+                "weight": 0.44756585359573364
+            }
+        },
+        {
+            "data": {
+                "id": "work_people",
+                "source": "work",
+                "target": "people",
+                "weight": 0.4384090006351471
+            }
+        },
+        {
+            "data": {
+                "id": "theory_problem",
+                "source": "theory",
+                "target": "problem",
+                "weight": 0.42937180399894714
+            }
+        },
+        {
+            "data": {
+                "id": "Artix_work",
+                "source": "Artix",
+                "target": "work",
+                "weight": 0.4238065183162689
+            }
+        },
+        {
+            "data": {
+                "id": "money_people",
+                "source": "money",
+                "target": "people",
+                "weight": 0.4100183844566345
+            }
+        },
+        {
+            "data": {
+                "id": "money_lot",
+                "source": "money",
+                "target": "lot",
+                "weight": 0.4044003188610077
+            }
+        },
+        {
+            "data": {
+                "id": "Artix_thing",
+                "source": "Artix",
+                "target": "thing",
+                "weight": 0.40176886320114136
+            }
+        },
+        {
+            "data": {
+                "id": "business_make money",
+                "source": "business",
+                "target": "make money",
+                "weight": 0.39553794264793396
+            }
+        },
+        {
+            "data": {
+                "id": "college_founder",
+                "source": "college",
+                "target": "founder",
+                "weight": 0.3848947584629059
+            }
+        },
+        {
+            "data": {
+                "id": "bad idea_thing",
+                "source": "bad idea",
+                "target": "thing",
+                "weight": 0.37672916054725647
+            }
+        },
+        {
+            "data": {
+                "id": "business_money",
+                "source": "business",
+                "target": "money",
+                "weight": 0.3754569888114929
+            }
+        },
+        {
+            "data": {
+                "id": "Web_people",
+                "source": "Web",
+                "target": "people",
+                "weight": 0.3587804436683655
+            }
+        },
+        {
+            "data": {
+                "id": "college_idea",
+                "source": "college",
+                "target": "idea",
+                "weight": 0.3234618604183197
+            }
+        },
+        {
+            "data": {
+                "id": "college_company",
+                "source": "college",
+                "target": "company",
+                "weight": 0.31544017791748047
+            }
+        }
+    ]
+}
