@@ -43,6 +43,16 @@ Promise.all([graphP]).then(initCy);
 
 //check https://blog.js.cytoscape.org/2020/05/11/layouts/ cola, fcose
 
+// Given X1 size = 30, min_size=X0.6, max_size=X0.1.8, input value range = 0.2-1
+var nodeSize = function(node){
+	return node.data('weight')*45+9;
+}
+
+
+var edgeLengthSize = function(edge){
+	return length_value/100*(140-0.7*edge.data('weight'));
+}
+
 var style = [
     {
         selector: "node",
@@ -50,8 +60,8 @@ var style = [
             "label": "data(id)",
             "text-wrap": "wrap",
             "text-max-width": "200px",
-            "width": function(ele){return ele.data('weight')*50;},
-            "height": function(ele){return ele.data('weight')*50;}
+            "width": function(ele){return nodeSize(ele);},
+            "height": function(ele){return nodeSize(ele);}
 
         }
     },
@@ -63,6 +73,8 @@ var style = [
     }
 ]
 
+
+
 function initCy(then){
 	var elems = then[0]
 	var cy = window.cy = cytoscape({
@@ -72,8 +84,11 @@ function initCy(then){
 		layout: layout_config
 	});
 
-	var output_text = "layout: " + layout_config.name + "<br>edge length:" + length_value
+	var output_text = "layout: " + layout_config.name + "<br>edge length:" + length_value;
 	document.getElementById("current-setting").innerHTML = output_text;
+
+	// set to prevent too small text
+	cy.minZoom(0.8);
 
 	document.getElementById("layoutButton").addEventListener("click", function(){
 	let layoutType = document.getElementById("layout-type")
@@ -85,14 +100,15 @@ function initCy(then){
 		layout_config = {
 			name: layout_type, 
 			animate: true,
-			edgeLength: function(edge){return length_value/edge.data('weight');}
+			edgeLength: function(edge){return edgeLengthSize(edge);},
+			// edgeLength: 100
 		};
 	}
 	if (layout_type==="fcose"){
 		layout_config = {
 			name: layout_type, 
 			animate: true,
-			idealEdgeLength: function(edge){return length_value/edge.data('weight');}
+			idealEdgeLength: function(edge){return edgeLengthSize(edge);}
 		};
 	}
 	
