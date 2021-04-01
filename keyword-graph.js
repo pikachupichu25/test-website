@@ -1,7 +1,9 @@
+var length_value = 75;
+
 var layout_config = {
 	name: 'cola', 
 	animate: true,
-	edgeLength: function(edge){return 50/edge.data('weight');}
+	edgeLength: function(edge){return length_value/edge.data('weight');}
 };
 var updateLayoutAfterAddNode = true;
 
@@ -70,26 +72,35 @@ function initCy(then){
 		layout: layout_config
 	});
 
+	var output_text = "layout: " + layout_config.name + "<br>edge length:" + length_value
+	document.getElementById("current-setting").innerHTML = output_text;
+
 	document.getElementById("layoutButton").addEventListener("click", function(){
 	let layoutType = document.getElementById("layout-type")
 	let layout_type = layoutType.options[layoutType.selectedIndex].value
+
+	let edgeLengthValue = document.getElementById("edge-length")
+	length_value = edgeLengthValue.value
 	if (layout_type==="cola"){
 		layout_config = {
 			name: layout_type, 
 			animate: true,
-			edgeLength: function(edge){return 50/edge.data('weight');}
+			edgeLength: function(edge){return length_value/edge.data('weight');}
 		};
 	}
 	if (layout_type==="fcose"){
 		layout_config = {
 			name: layout_type, 
 			animate: true,
-			idealEdgeLength: function(edge){return 50/edge.data('weight');}
+			idealEdgeLength: function(edge){return length_value/edge.data('weight');}
 		};
 	}
 	
-	var layout = cy.layout(layout_config);
-	layout.run()
+		var layout = cy.layout(layout_config);
+		layout.run()
+
+		var output_text = "layout: " + layout_type + "<br>edge length:" + length_value
+		document.getElementById("current-setting").innerHTML = output_text;
 	})
 
 
